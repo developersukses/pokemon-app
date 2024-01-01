@@ -29,7 +29,7 @@ const MyPokemon = () => {
     const handleRename = async (id) => {
       try {
         setLoadingButtonRename({isLoading: true, id : id})
-        await axios.patch(`http://localhost/pokemons/${id}`,{
+        await axios.patch(`https://said-pokemon-api.vercel.app/pokemons/${id}`,{
           id: id
         })
         mutate()
@@ -44,7 +44,7 @@ const MyPokemon = () => {
     const handleRelease = async (id,pokemonId,pokemonName) => {
         handleDialog(true, 'Release',pokemonName,"", pokemonId)
         
-        const release = await axios.delete(`http://localhost/pokemons/release/${id}`)
+        const release = await axios.delete(`https://said-pokemon-api.vercel.app/pokemons/release/${id}`)
         setTimeout(() => {
           release.data.release ? handleDialog(true,'Release Successfully',pokemonName,true,pokemonId) : handleDialog(true,release.data.msg,pokemonName,false,pokemonId)
         }, 1000);

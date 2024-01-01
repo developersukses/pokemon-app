@@ -32,12 +32,12 @@ const DialogProcessComponent = ({ pokemonName, title, results, onClose, pokemonI
 
         if(nickname != ""){
             //check name on API 
-            const results = await axios.get(`http://localhost/pokemons/${nickname}`)
+            const results = await axios.get(`https://said-pokemon-api.vercel.app/pokemons/${nickname}`)
             if(results.data != null){
                 setValidated( prev => ({...prev, text: 'Nickname are ready exist', isInvalid:true}))
             }else{
                 setValidated(prev => ({...prev, isLoading: true}))
-                const catching = await axios.post(`http://localhost/pokemons`,{
+                const catching = await axios.post(`https://said-pokemon-api.vercel.app/pokemons`,{
                     nickname: nickname,
                     pokemon_id: pokemonId
                 })

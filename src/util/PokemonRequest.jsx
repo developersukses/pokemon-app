@@ -1,7 +1,7 @@
 import useSWR from 'swr';
 
 const baseUrl = 'https://pokeapi.co/api/v2';
-const baseUrl2 = 'http://localhost'
+const baseUrl2 = 'https://said-pokemon-api.vercel.app'
 
 const PokemonRequest = (path, name) => {
     if(!path){

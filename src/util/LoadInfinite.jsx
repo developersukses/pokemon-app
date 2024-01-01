@@ -3,7 +3,7 @@ import useSWRInfinite from 'swr/infinite'
 
 const fetcher = (...args) => axios.get(...args).then(res => res.data.results)
 const baseUrl = 'https://pokeapi.co/api/v2';
-const baseUrl2 = 'http://localhost';
+const baseUrl2 = 'https://said-pokemon-api.vercel.app';
 
 const LoadInfinite = (path, limit) => {
     const getKey = (pageIndex, previousPageData) => {

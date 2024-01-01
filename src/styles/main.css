@@ -1,0 +1,422 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,700&display=swap');
+
+:root {
+    --primary-color: #f6f8fd;
+    --secondary-color: #dc3545;
+    --color-text: #231942;
+    --navbar-color: #ffffff;
+    --navbar-color-text: #000000;
+}
+
+* {
+    font-family: 'poppins', sans-serif;
+}
+
+.navbar {
+    position: fixed;
+    padding: 15px 0 15px 0;
+    width: 100%;
+    transition: all 0.2s ease;
+    z-index: 999;
+}
+
+.navbar.color-active {
+    background-color: var(--navbar-color);
+    padding: 20px 0 20px 0;
+    border-bottom: 2px solid rgba(27, 31, 35, 0.15);
+}
+
+.navbar .nav-link a {
+    padding: 5px 10px 5px 10px;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--navbar-color-text);
+}
+
+.navbar .nav-link a:hover {
+    color: var(--secondary-color);
+}
+
+.navbar .nav-link .active {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.navbar .nav-link .active:hover {
+    color: var(--navbar-color);
+}
+
+/* END NAVBAR */
+
+/* POKEMON LIST */
+.pokemon-list {
+    background-color: var(--primary-color);
+    padding-top: 150px;
+    color: var(--color-text);
+}
+
+.pokemon-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding-inline: 10px;
+    padding-bottom: 10px;
+}
+
+.pokemon-list .pokemon-card {
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    background-color: white;
+    transition: all 0.3s ease;
+    height: 350px;
+}
+
+.pokemon-list .effect-card:hover {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    transform: translateY(-5px);
+}
+
+.pokemon-list .pokemon-card .image-card {
+    width: 100%;
+    height: 200px;
+}
+
+.pokemon-list .pokemon-card .image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: white;
+}
+
+.pokemon-list .pokemon-card .body-card {
+    padding: 20px;
+    height: 100px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: var(--color-text);
+}
+
+.body-card h4 {
+    font-size: 1.3rem;
+    text-transform: capitalize;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+
+.footer-card {
+    height: 30px;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.footer-card .footer-loading {
+    width: 100%;
+    height: 50%;
+}
+
+.bg-loading {
+    background-color: #cacaca;
+}
+
+/* button load more */
+.next {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem 0;
+}
+
+.next button {
+    padding: 1rem 2rem;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 500;
+    color: #7263f3;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.next button:hover {
+    color: #333;
+}
+
+/* POKEMON DETAIL */
+.pokemon-detail {
+    padding-top: 150px;
+    color: var(--color-text);
+}
+
+.pokemon-detail .row:nth-child(1) h1 {
+    margin-bottom: 100px;
+}
+
+.card-detail-image {
+    position: relative;
+}
+
+.card-detail-image img {
+    position: absolute;
+    left: 50%;
+    top: -70px;
+    max-width: 200px;
+    transition: all .15s ease;
+    transform: translate(-50%, -30%);
+    border-radius: .375rem;
+}
+
+.card-profile-image img:hover {
+    transform: translate(-50%, -33%);
+}
+
+.pokemon-type {
+    padding: 8px 8px;
+    text-transform: uppercase;
+    border-radius: 10px;
+}
+
+.card-profile-stats {
+    padding: 1rem 0;
+}
+
+.card-profile-stats>div {
+    margin-right: 1rem;
+    padding: .875rem;
+    text-align: center;
+}
+
+.card-profile-stats>div:last-child {
+    margin-right: 0;
+}
+
+.card-profile-stats>div .heading {
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: block;
+}
+
+.card-profile-stats>div .description {
+    font-size: .875rem;
+    color: #7f8284;
+}
+
+
+/* PROGRESS BAR */
+
+/* DIALOG */
+.dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.dialog.show {
+    display: flex;
+}
+
+.dialog::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(4px);
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.dialog.show::before {
+    animation: fade_show 0.5s forwards;
+}
+
+.dialog-content {
+    position: relative;
+    max-width: 450px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.2);
+    border: 1px solid #e7e7eb;
+    transform: translateY(-30px);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.dialog.show .dialog-content {
+    animation: dialog_show 0.5s forwards;
+}
+
+.dialog-header {
+    padding: 0.8rem 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dialog-process {
+    padding: 0.8rem 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+    color: #212129;
+}
+
+.btn-dialog-close {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    text-decoration: none;
+    min-width: 35px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    color: #474752;
+    cursor: pointer;
+}
+
+.btn-dialog-close i {
+    position: relative;
+    top: 1px;
+}
+
+.btn-dialog-close:hover {
+    background: #efeff1;
+}
+
+.btn-dialog-close:active {
+    background: #dbdbdf;
+}
+
+.dialog-body {
+    padding: 0.5rem 1.2rem;
+}
+
+.dialog-img-body {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog-img-body img {
+    width: 180px;
+}
+
+.dialog-message {
+    font-size: 17px;
+    margin: 0;
+    font-weight: 600;
+    color: #4c4c52;
+    text-align: center;
+}
+
+.dialog-footer {
+    padding: 0.8rem 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.btn-dialog {
+    position: relative;
+    display: inline-block;
+    padding: 0.4rem 1.2rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    user-select: none;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: background 0.3s, color 0.1s;
+}
+
+.btn-dialog-cancel {
+    background: #a4a5af;
+    color: #ffffff;
+}
+
+.btn-dialog-cancel:hover {
+    background: #5b5c64;
+    color: #ffffff;
+}
+
+.btn-dialog-delete {
+    background: #f8ecec;
+    color: #ca0a0a;
+}
+
+.btn-dialog-delete:hover {
+    background: #ee1a1a;
+    color: #ffffff;
+}
+
+.btn-dialog-continue {
+    background: #f8ecec;
+    color: #000000;
+}
+
+.btn-dialog-continue:hover {
+    background: #000000;
+    color: #ffffff;
+}
+
+@keyframes fade_show {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@keyframes dialog_show {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-30px);
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+/* MY POKEMON */
